@@ -1,12 +1,10 @@
 'use strict';
-
 import ReactRoutes from './react.jsx';
 import {join} from 'path';
 
 function reactRouterRoutesParser(routes, parentPath) {
 
     let result = [];
-
     routes = Array.isArray(routes) ? routes : [routes];
     routes.forEach(route => {
         const props = route._store.props;
@@ -28,6 +26,11 @@ export default function routes(router) {
     let expressRoutes = reactRouterRoutesParser(ReactRoutes);
     expressRoutes.forEach(path => {
         router.get(path, (req,res) => {
+        res.intl = {
+            locales : ["fr-FR"]
+        };
+        req.acceptsLanguages('fr');
+        res.locals.context = { locality: {language: 'fr', country: 'FR' } };
             res.render(req.url, {});
         })
     });

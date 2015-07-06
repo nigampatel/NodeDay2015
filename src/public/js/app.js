@@ -5,6 +5,11 @@ import Router from 'react-router';
 import ReactRoutes from '../../controllers/react.jsx';
 import Client from 'react-engine/lib/client';
 
+// var React = require('react');
+// var Router = require('react-router');
+// var ReactRoutes = require('../../controllers/react.jsx');
+// var Client = require('react-engine/lib/client');
+
 // boot options
 var options = {
     react: React,

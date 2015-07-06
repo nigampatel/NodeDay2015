@@ -5,6 +5,12 @@ import Router from 'react-router';
 
 export default React.createClass({
     render: function() {
+        var intlData = {
+                "locales": "fr-FR",
+                 "messages": {
+                    "photos": "{name} took {numPhotos, plural,\n  =0 {no photos}\n  =1 {one photo}\n  other {# photos}\n} on {takenDate, date, long}.\n"
+                }
+        };
         return (
             <html>
                 <head>
@@ -20,7 +26,7 @@ export default React.createClass({
                     />
                 </head>
                 <body>
-                    <Router.RouteHandler {...this.props} />
+                    <Router.RouteHandler {...intlData} />
                 </body>
             </html>
         );
